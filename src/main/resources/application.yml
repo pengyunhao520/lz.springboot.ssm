@@ -1,0 +1,58 @@
+server:
+  port: 8081
+  tomcat:
+    connection-timeout: 6000
+    accept-count: 500
+    max-threads: 400
+  undertow:
+    no-request-timeout: 6000
+  servlet:
+    session:
+      timeout: 6000
+## json
+#kd:
+#  name:
+#    pwd: 456
+#spring.mvc.view.prefix=/WEB-INF/view/
+#spring.mvc.view.suffix=.jsp
+spring:
+  mvc:
+   view:
+     prefix: /WEB-INF/view/
+     suffix: .jsp
+  datasource:
+#    #mysql配置
+#    driverClassName: com.mysql.jdbc.Driver
+#    url : jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+#    username : root
+#    password : 123456
+
+    # SqlServer 配置
+    driver-class-name : com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url : jdbc:sqlserver://192.168.28.26:1433;databasename=Quese
+    username : sa
+    password : lz@198312
+
+    ## SqlServer 配置
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    url: jdbc:sqlserver://localhost:1433;databasename=hospitaltest
+#    username: sa
+#    password: root
+
+  # Spring devtools
+  devtools:
+    restart:
+      enabled: true
+
+# Mybatis配置
+mybatis:
+  typeAliasesPackage: hospital/domain
+  configuration.map-underscore-to-camel-case: true
+
+# 日志
+logging:
+ level:
+    hospital: DEBUG
+   
+  
+               
