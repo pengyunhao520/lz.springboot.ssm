@@ -6,7 +6,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-/*患者*/
+/**
+ * 患者
+ */
 public class Patient {
     @JsonProperty("Serial_no")
     private int serialNO;

@@ -7,6 +7,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.sql.Blob;
 import java.util.Date;
 
+/**
+ * 医生排班
+ */
 public class DiaScheduling {
     private int ID;
 

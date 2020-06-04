@@ -2,7 +2,9 @@ package hospital.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/*医生*/
+/**
+ * 医生
+ */
 public class Employee {
     private String EmployeeCode;
     private String EmployeeName;
