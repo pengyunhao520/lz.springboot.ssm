@@ -27,8 +27,8 @@ $(function () {
                         console.debug(action)
                         return "<img src='"+base64+action.doctorImage+"'>";
                     }},*/
-                {field:'name',title: '医生姓名', width: 100,align:'center'},
-                {field:'specialty',title: '所在科室',width: 120,align:'center'},
+                {field:'name',title: '医生姓名', width: 'full-200',align:'center'},
+                {field:'specialty',title: '所在科室',width: 'full-200',align:'center'},
 
                /* {field:'doctorImage',title: '头像',align:'center',template: function (action) {
                     return "<img src='"data:image/png;base64,""+action+"'>";
@@ -41,10 +41,11 @@ $(function () {
         });
         // $('.layui-table .layui-table-cell > span').css({pading: 0});//表头字体样式
         // /*$('th').css({'background-color': '#5792c6', 'color': '#fff','font-weight':'bold'}) 表头的样式 */
-        // $('th').hide();//表头隐藏的样式
+         $('th').hide();//表头隐藏的样式
     });
 })
 
+//显示医生图片
 $(function () {
     layui.use('table', function(){
         var table = layui.table;
@@ -63,10 +64,39 @@ $(function () {
             }
 
             ,cols: [[
-                {field:'doctorImg',width:'140px',style:'background-color: lightblue; color: #fff;',templet: function (action) {
+                {field:'doctorImg',templet: function (action) {
                         var base64="data:image/jpg;base64,";
-                        return "<img height='130px' width='110px' src='"+base64+action.doctorImg+"'>";
+                        return "<div><img width='150px' height='180px' style='margin-left:47px;text-align: center' src='"+base64+action.doctorImg+"'></div>";
                     }},
+            ]]
+
+
+
+        });
+        // $('.layui-table .layui-table-cell > span').css({pading: 0});//表头字体样式
+        $('th').hide();//表头隐藏的样式
+    });
+})
+
+//显示医生简介
+$(function () {
+    layui.use('table', function(){
+        var table = layui.table;
+        table.render({
+            elem: '#remarkTable'
+            //,height:'100px'
+            ,url:'/hospital/doctorAll'
+            ,backgroundColor:'lightblue'
+            ,parseData:function (res) {
+                return{
+                    "code":0,
+                    "msg":"",
+                    "count":1,
+                    "data":res,
+                }
+            }
+
+            ,cols: [[
                 {field:'remark',title:'信息简介',width: 'full-200',align:'center'},
             ]]
 
@@ -74,7 +104,7 @@ $(function () {
 
         });
         // $('.layui-table .layui-table-cell > span').css({pading: 0});//表头字体样式
-         //$('th').hide();//表头隐藏的样式
+         $('th').hide();//表头隐藏的样式
     });
 })
 
@@ -101,7 +131,7 @@ $(function () {
         });
         // $('.layui-table .layui-table-cell > span').css({pading: 0});//表头字体样式
         // /*$('th').css({'background-color': '#5792c6', 'color': '#fff','font-weight':'bold'}) 表头的样式 */
-        // $('th').hide();//表头隐藏的样式
+         $('th').hide();//表头隐藏的样式
     });
 })
 
@@ -122,12 +152,12 @@ $(function () {
                 }
             }
             ,cols: [[
-                {field:'Patient_name',title: '等待就诊', width: 'full-200',align:'center'},
+                {field:'Patient_name',title: '正在就诊', width: 'full-200',align:'center'},
             ]]
         });
         // $('.layui-table .layui-table-cell > span').css({pading: 0});//表头字体样式
         // /*$('th').css({'background-color': '#5792c6', 'color': '#fff','font-weight':'bold'}) 表头的样式 */
-        // $('th').hide();//表头隐藏的样式
+         $('th').hide();//表头隐藏的样式
     });
 })
 
@@ -152,7 +182,7 @@ function getCurDate()
     var minutes = add_zero(d.getMinutes());
     var seconds=add_zero(d.getSeconds());
     var ndate = years+"年"+month+"月"+days+"日 "+hours+":"+minutes+":"+seconds+" "+week;
-    divT.innerHTML= ndate;
+    // divT.innerHTML= ndate;
 }
 
 function add_zero(temp)

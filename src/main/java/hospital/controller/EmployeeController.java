@@ -127,6 +127,7 @@ public class EmployeeController<list> {
             //创建util中的Week对象
             Week week = new Week();
             for (DiaScheduling dia:diaScheduling) {
+                //
                 if (week.weekDay(weekday).equals(dia.getWeekTime())){
                     videoPath=dia.getVideo();
                 }

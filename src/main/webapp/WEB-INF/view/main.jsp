@@ -23,77 +23,141 @@
         font-weight: bold;
     }
     #title{
+        position:fixed;
         width:100%;
+        height: 150px;
+        background-color: #0f88eb;
         text-align:center;
-        font-size:30px;
-        margin-top:2px;
-        margin-bottom:3px;
+        font-size:100px;
+        color: white;
+        bottom: 0px;
+        align-self: center;
+        font-family: "仿宋";
+    }
+    #title_img{
+        position:relative ;
+        bottom: -10%;
+
+    }
+    #keshi{
+        background-color: #0f88eb;
+        height: 150px;
+        font-size: 100px;
+        text-align: center;
+        font-family: "楷体";
     }
 
-    .line1{
-        height: 3px;
-        background-color:blue;
-        width: 100%;
+    #keshifont{
+        position:relative ;
+        bottom: -10%;
     }
 
+    #line2{
+        background-color: #0f88eb;
+        width: 20px;
+        margin-top: -5px;
+        height: 800px;
+        margin-left: 50%;
+    }
 
     .doctorDiv{
-        position:relative;
+        /*position:relative;*/
         width: 49%;
         height: auto;
-        margin-top: -400px;
+        margin-top: -480px;
     }
 
     #doctorTableDiv{
         margin: 0 auto;
-        height: 130px;
-        width: 221px;
-    }
-
-    #line2{
-        width: 3px;
-        height: 450px;
-        align-content: center;
-        margin-left: 50%;
-        margin-top: -492px;
-    }
-    #line3{
-        width: 100%;
-        margin-top: -10px;
+        margin-top: -100px;
+        width: 400px;
     }
 
     .imageTableDiv{
+        border: 0;
         margin: 0 auto;
         height: 350px;
         width: auto;
+        margin-top: 20px;
         margin-left: 3px;
     }
     .personDiv{
         position:relative;
         width: 49%;
         height: auto;
+        margin-top: -600px;
         margin-left: auto;
     }
-    #personTableDiv{
-        margin: 0 auto;
-        width: 100px;
-        margin-left: 130px;
-    }
-  /* #personTable{
-       align-content: center;
-   }*/
 
+    #jiuzhenhuanzhe{
+        margin-left: 130px;
+        width: 600px;
+        height: 156px;
+        border: 2px solid #0f88eb;
+    }
+    #jiuzhen{
+        margin-left: -2px;
+        text-align: center;
+        background-color: #0f88eb;
+        color: white;
+        width: 170px;
+        font-family: "楷体";
+        font-size: 68.5px;
+    }
+
+    #dengdaijiuzhen{
+        margin-left: 130px;
+        margin-top: 30px;
+        width: 600px;
+        height: 156px;
+        border: 2px solid #0f88eb;
+    }
+    #dengdai{
+        font-family: "楷体";
+        margin-left: -2px;
+        text-align: center;
+        background-color: #0f88eb;
+        color: white;
+        width: 170px;
+        font-size: 68.5px;
+    }
+    #personTableDiv{
+        border: 0;
+        margin: 0 auto;
+        width: 250px;
+        margin-top: -140px;
+        margin-left: 220px;
+
+    }
     #personTableDiv2{
-        margin-top: -96px;
-        width: 100px;
-        margin-left: 230px;
+        font-size: 100px;
+        margin: 0 auto;
+        align-content: center;
+        width: 250px;
+        margin-top: -140px;
+        margin-left: 220px;
+
     }
     #person2Table{
         align-content: center;
     }
     #imageTable{
-        background-color: lightblue;
+        border: 0;
     }
+    #div11 > div.doctorDiv > div.remarkTableDiv > div > div > div.layui-table-body.layui-table-main > table{
+        border: 0;
+    }
+    #div11 > div.doctorDiv > div.remarkTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
+        border: 0;
+    }
+    #div11 > div.doctorDiv > div.remarkTableDiv{
+        margin: 0 auto;
+        width: 400px;
+        border: 0;
+        margin-top: 30px;
+    }
+
+
     .layui-table-cell{
         height:auto;
         overflow:visible;
@@ -108,9 +172,7 @@
         margin:0 auto;
         font-size: large;
     }
-    #body{
-        background-color: lightblue;
-    }
+
     #img{
         width: 400px;
         height: 300px;
@@ -121,41 +183,122 @@
         margin: 0 auto;
         width: 300px;
     }
-    #personTableDiv > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1){
-        width: 98.8px;
+
+
+
+   /* #personTableDiv > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1){
+        !*width: 98.8px;*!
+        width: auto;
     }
     #personTableDiv2 > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1){
         width: 98.5px;
+    }*/
+    #personTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
+        font-size: 60px;
+        color: #0f88eb;
+        text-align: center;
+    }
+    #personTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
+        height: 100px;
+    }
+    #personTableDiv2 > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
+        font-size: 60px;
+        color: #0f88eb;
+        text-align: center;
+    }
+    #personTableDiv2 > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
+        height: 100px;
+    }
+    #personTableDiv2 > div{
+        border: 0px;
+        width: 350px;
+    }
+    #personTableDiv > div{
+        border: 0px;
+        width: 350px;
+    }
+    #doctorTableDiv > div{
+        border-color: #0f88eb;
+    }
+    #doctorTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td:nth-child(1){
+        border-color: #0f88eb;
+        font-size: 30px;
+        color: #0f88eb;
+        font-family: "楷体";
+        width: 196px;
+    }
+    #doctorTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td:nth-child(2) > div{
+        border-color: #0f88eb;
+        color: #0f88eb;
+        font-size: 30px;
+        font-family: "楷体";
+    }
+    #doctorTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td:nth-child(1) > div{
+        border-right: 2px solid #0f88eb;
+    }
+    #div11 > div.doctorDiv > div.remarkTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
+        border-color: #0f88eb;
+        font-size: 30px;
+        font-family: "楷体";
+        color: #0f88eb;
+    }
+    #div11 > div.doctorDiv > div.remarkTableDiv > div{
+        border-color: #0f88eb;
+        font-size: 30px;
+        font-family: "楷体";
+        color: #0f88eb;
+    }
+    #div11 > div.doctorDiv > div.imageTableDiv > div{
+        border-color: #0f88eb;
+    }
+    #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div > img{
+        border-color: #0f88eb;
+    }
+    #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
+        border-color: #0f88eb;
+    }
+    #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div > div > img{
+        border-color: #0f88eb;
+    }
+    html,body{
+        height: 100%;
+        width: 100%;
     }
 </style>
 
 
 
-<body id="body">
+<body >
     <%--<div class="layui-row">--%>
-    <div>
-        <div class="layui-col-md9" id="title">
-            <img src="static/images/logo.jpg" width="60" >
-            石首中医院
+    <div id="div11">
+        <div id="keshi">
+            <span id="keshifont">科室</span>
         </div>
-        <hr class="line1"/>
-
+        <hr id="line2" class="line1"/>
         <%--当前就诊和等会患者--%>
         <div class="personDiv">
-            <div id="personTableDiv">
-                <table class="layui-table-cell" id="personTable"></table>
+            <div id="jiuzhenhuanzhe">
+                <div id="jiuzhen">正在就诊</div>
+                <div id="personTableDiv">
+                    <table class="layui-table-cell" id="personTable"></table>
+                </div>
             </div>
-            <div id="personTableDiv2">
-                <table class="layui-table-cell" id="person2Table"></table>
+            <div id="dengdaijiuzhen">
+                <div id="dengdai">等待就诊</div>
+                <div id="personTableDiv2">
+                    <table class="layui-table-cell" id="person2Table"></table>
+                </div>
             </div>
-            <div>
-                <%--<img src="static/images/hospitl.jpg" id="img">--%>
+
+
+           <%-- <div>
+                &lt;%&ndash;<img src="static/images/hospitl.jpg" id="img">&ndash;%&gt;
                     <video id="img" muted="muted" autoplay="autoplay" loop controls="controls"
                            src="${pageContext.request.contextPath}/hospital/video">
                     </video>
 
 
-                   <%-- <video
+                   &lt;%&ndash; <video
                             id="video"
                             preload="auto"
                             autobufer="true"
@@ -167,25 +310,34 @@
                             style="object-fit:fill;position: absolute; width: 70%; height: 70%; top: 15%; left: 15%;"
                             src="http://qn.media.epub360.com/materials/video/75d5c1fe97ac5d6af2f4ff3d851353b0.mp4_origin.mp4"
                             poster="http://qn.media.epub360.com/materials/video/75d5c1fe97ac5d6af2f4ff3d851353b0.mp4_video0.png">
-                    </video>--%>
-            </div>
+                    </video>&ndash;%&gt;
+            </div>--%>
         </div>
 
         <!-- 当前就诊医生 -->
         <div class="doctorDiv">
-            <div id="doctorTableDiv">
-                <table class="layui-table-cell" id="doctorTable">
-                </table>
-            </div>
             <div class="imageTableDiv">
                 <table class="layui-table-cell" id="imageTable">
                 </table>
             </div>
+            <div id="doctorTableDiv">
+                <table class="layui-table-cell" id="doctorTable">
+                </table>
+            </div>
+            <div class="remarkTableDiv">
+                <table class="layui-table-cell" id="remarkTable">
+                </table>
+            </div>
         </div>
 
-        <hr id="line2" class="line1"/>
-        <hr id="line3" class="line1"/>
-        <div id="divT"></div>
+
+
+        <div class="layui-col-md9" id="title">
+            <div id="title_img">
+                <img src="static/images/logo.jpg" width="100"  >
+                石首市中医医院
+            </div>
+        </div>
     </div>
 
 
