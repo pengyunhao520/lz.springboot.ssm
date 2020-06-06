@@ -22,6 +22,12 @@
     .layui-table-cell{
         font-weight: bold;
     }
+    #div11{
+        height: 100%;
+        border-left: 40px solid #0f88eb;
+        border-right: 40px solid #0f88eb;
+
+    }
     #title{
         position:fixed;
         width:100%;
@@ -51,13 +57,38 @@
         position:relative ;
         bottom: -10%;
     }
-
+    #keshi > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
+        border: 0;
+    }
+    #keshi > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
+        height: 140px;
+        font-size: 100px;
+        text-align: center;
+        font-family: "楷体";
+        margin: 0 auto;
+        background-color: #0f88eb;
+        width: 1920px;
+        border: 5px solid #0f88eb;
+    }
     #line2{
         background-color: #0f88eb;
         width: 20px;
         margin-top: -5px;
         height: 800px;
         margin-left: 50%;
+    }
+    #lineleft{
+        background-color: #0f88eb;
+        width: 20px;
+        margin-top: -705px;
+        height: 900px;
+    }
+    #lineright{
+        background-color: #00FF00;
+        width: 20px;
+        margin-top: -205px;
+        height: 800px;
+        margin-right: 0;
     }
 
     .doctorDiv{
@@ -272,9 +303,12 @@
     <%--<div class="layui-row">--%>
     <div id="div11">
         <div id="keshi">
-            <span id="keshifont">科室</span>
+            <table class="layui-table-cell" id="keshifont"></table>
+<%--            <span id="keshifont">科室</span>--%>
         </div>
         <hr id="line2" class="line1"/>
+<%--        <hr id="lineleft" class="line1"/>--%>
+<%--        <hr id="lineright" class="line1"/>--%>
         <%--当前就诊和等会患者--%>
         <div class="personDiv">
             <div id="jiuzhenhuanzhe">

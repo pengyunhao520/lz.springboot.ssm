@@ -8,6 +8,46 @@ $(function () {
     layui.use('table', function(){
         var table = layui.table;
         table.render({
+            elem: '#keshifont'
+            ,url:'/hospital/doctorAll'
+            ,skin: 'nob' //行边框风格
+            ,parseData:function (res) {
+                return{
+                    "code":0,
+                    "msg":"",
+                    "count":1,
+                    "data":res
+                }
+            }
+            ,cols: [[
+                /* {field:'doctorImage',title: '头像',align:'center',templet: function (action) {
+                         var base64="data:image/gif;base64,";
+                         console.debug("base64")
+                         console.debug(base64)
+                         console.debug(action)
+                         return "<img src='"+base64+action.doctorImage+"'>";
+                     }},*/
+                {field:'specialty',title: '所在科室',width: 'full-200',align:'center'},
+
+                /* {field:'doctorImage',title: '头像',align:'center',template: function (action) {
+                     return "<img src='"data:image/png;base64,""+action+"'>";
+                     }},*/
+
+            ]]
+
+
+
+        });
+        // $('.layui-table .layui-table-cell > span').css({pading: 0});//表头字体样式
+        // /*$('th').css({'background-color': '#5792c6', 'color': '#fff','font-weight':'bold'}) 表头的样式 */
+        $('th').hide();//表头隐藏的样式
+    });
+})
+
+$(function () {
+    layui.use('table', function(){
+        var table = layui.table;
+        table.render({
             elem: '#doctorTable'
             ,url:'/hospital/doctorAll'
             ,skin: 'nob' //行边框风格
