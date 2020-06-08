@@ -30,8 +30,10 @@ spring:
     # SqlServer 配置
     driver-class-name : com.microsoft.sqlserver.jdbc.SQLServerDriver
     url : jdbc:sqlserver://192.168.28.26:1433;databasename=Quese
+    #url : jdbc:sqlserver://192.168.10.238:1433;databasename=Quese
     username : sa
     password : lz@198312
+    #password : Win2008
 
     ## SqlServer 配置
 #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver

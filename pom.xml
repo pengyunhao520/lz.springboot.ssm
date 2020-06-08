@@ -97,12 +97,12 @@
 
 
 
-<!--    &lt;!&ndash;驱动 SqlServer&ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>com.microsoft.sqlserver</groupId>-->
-<!--      <artifactId>sqljdbc4</artifactId>-->
-<!--      <version>4.0</version>-->
-<!--    </dependency>-->
+    <!--驱动 SqlServer-->
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>sqljdbc4</artifactId>
+      <version>4.0</version>
+    </dependency>
 
     <!-- spring-boot mybatis依赖 -->
     <dependency>

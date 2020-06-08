@@ -8,7 +8,7 @@ import java.io.*;
 import java.net.MalformedURLException;
 
 public class TestVideo {
-    public static void main(String[] args) throws MalformedURLException {
+   /* public static void main(String[] args) throws MalformedURLException {
         //smb://xxx:xxx@.../testIndex/
         //xxx:xxx是共享机器的用户名密码
         //SmbFile smbFile = new SmbFile("smb://域名;登录账号:登录密码@服务器ip/文件夹名称/");
@@ -19,11 +19,11 @@ public class TestVideo {
     }
 
 
-    /**
+    *//**
      * 从共享目录下载文件
      * @param remoteUrl 共享目录
      * @param localDir 本地目录
-     */
+     *//*
     public static void getFile(String remoteUrl,String localDir) {
         InputStream in = null;
         OutputStream out = null;
@@ -58,5 +58,5 @@ public class TestVideo {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }
