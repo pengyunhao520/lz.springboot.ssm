@@ -35,12 +35,6 @@ spring:
     password : lz@198312
     #password : Win2008
 
-    ## SqlServer 配置
-#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#    url: jdbc:sqlserver://localhost:1433;databasename=hospitaltest
-#    username: sa
-#    password: root
-
   # Spring devtools
   devtools:
     restart:
