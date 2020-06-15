@@ -68,7 +68,7 @@ $(function () {
                         return "<img src='"+base64+action.doctorImage+"'>";
                     }},*/
                 {field:'name',title: '医生姓名', width: 'full-200',align:'center'},
-                {field:'specialty',title: '所在科室',width: 'full-200',align:'center'},
+                {field:'doctorCode',title: '工号',width: 'full-200',align:'center'},
 
                /* {field:'doctorImage',title: '头像',align:'center',template: function (action) {
                     return "<img src='"data:image/png;base64,""+action+"'>";
@@ -106,7 +106,7 @@ $(function () {
             ,cols: [[
                 {field:'doctorImg',templet: function (action) {
                         var base64="data:image/jpg;base64,";
-                        return "<div><img width='150px' height='180px' style='margin-left:47px;text-align: center' src='"+base64+action.doctorImg+"'></div>";
+                        return "<div><img width='80px' src='"+base64+action.doctorImg+"'></div>";
                     }},
             ]]
 
@@ -137,7 +137,7 @@ $(function () {
             }
 
             ,cols: [[
-                {field:'remark',title:'信息简介',width: 'full-200',align:'center'},
+               {field:'remark',title:'信息简介',width: 'full-200',align:'center'},
             ]]
 
 

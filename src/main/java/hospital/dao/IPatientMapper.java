@@ -20,6 +20,10 @@ public interface IPatientMapper extends BaseMapper<Patient> {
      * 查询当前所有正在排队患者
      * @return
      */
-   @Select("select * from Patient_Queue_Info where Status='排队' order by Queue_sn")
+   //@Select("select * from Patient_Queue_Info where Status='排队' order by Queue_sn")
+    @Select("SELECT TOP 1 *\n" +
+            "  FROM (SELECT ROW_NUMBER() OVER (ORDER BY Queue_sn) AS RowNumber,*\n" +
+            "         FROM Patient_Queue_Info) A\n" +
+            "WHERE RowNumber > 1*(-1)")
     List<Patient> selectAllOrder();
 }

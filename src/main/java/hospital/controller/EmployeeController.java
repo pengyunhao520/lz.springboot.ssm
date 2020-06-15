@@ -1,11 +1,14 @@
 package hospital.controller;
 
+import hospital.domain.DiaRoom;
 import hospital.domain.DiaScheduling;
 import hospital.domain.Employee;
 import hospital.domain.Patient;
+import hospital.service.IDiaRoomService;
 import hospital.service.IDiaSchedulingService;
 import hospital.service.IEmployeeService;
 import hospital.service.IPatientService;
+import hospital.util.TCPServer;
 import hospital.util.TestImage;
 import hospital.util.Week;
 import org.apache.tomcat.jni.Time;
@@ -42,6 +45,33 @@ public class EmployeeController<list> {
     private IDiaSchedulingService diaSchedulingService;
     @Autowired
     private IPatientService patientService;
+    @Autowired
+    private IDiaRoomService diaRoomService;
+
+
+    /**
+     * 获取客户端ip
+     * @param request
+     * @return
+     */
+    public static String getIpAddr(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        System.out.println(ip);
+        if (ip.contains(",")) {
+            return ip.split(",")[0];
+        } else {
+            return ip;
+        }
+    }
 
     /**
      * 查询当前值班医生
@@ -49,7 +79,7 @@ public class EmployeeController<list> {
      */
     @RequestMapping("/doctorAll")
     @ResponseBody
-    public List allDoctor() throws IOException {
+    public List allDoctor(HttpServletRequest request) throws IOException {
         //查询当前日期是一周的第几天
         Date today = new Date();
         Calendar c =Calendar.getInstance();
@@ -61,6 +91,11 @@ public class EmployeeController<list> {
         List list = new ArrayList();
         //创建图片处理对象
         TestImage testImage = new TestImage();
+        //创建获取ip对象
+        String ipAddr = getIpAddr(request);
+        System.out.println("ipAddr"+ipAddr);
+        DiaRoom diaRoom = diaRoomService.getDiaRoom(ipAddr);
+        System.out.println(diaRoom);
 
         //查询所有医生
         List<Employee> emp = employeeService.getAll();
@@ -73,10 +108,20 @@ public class EmployeeController<list> {
                     //将医生编号相等的医生姓名添加到diaScheduling
                     diaScheduling.setName(employee.getEmployeeName());
                     //判断当前星期和diaScheduling中的星期是否相等
-                    if ( week.weekDay(weekday).equals(diaScheduling.getWeekTime())){
-                        //将当前星期和数据库星期相等的添加到list中
-                        diaScheduling.setDoctorImg(testImage.blobToBase64(diaScheduling.getDoctorImage()));
-                        list.add(diaScheduling);
+                    if (week.weekDay(weekday).equals(diaScheduling.getWeekTime())){
+                        //判断客户端ip和数据库ip，RoomCode和DiaRoom是否相等
+                        System.out.println(diaRoom.getIpAddess());
+                        System.out.println(ipAddr);
+                        System.out.println(diaRoom.getRoomCode());
+                        System.out.println(diaScheduling.getDiaRoom());
+                        if (diaRoom.getIpAddess().equals(ipAddr) && diaRoom.getRoomCode().equals(diaScheduling.getDiaRoom())){
+                            //将当前星期和数据库星期相等的添加到list中
+                            diaScheduling.setDoctorImg(testImage.blobToBase64(diaScheduling.getDoctorImage()));
+                            diaScheduling.setSpecialty(diaRoom.getRoomName());
+                            list.add(diaScheduling);
+                            System.out.println("diaRoom:"+diaRoom);
+                        }
+
                     }
                 }
             }
@@ -102,6 +147,7 @@ public class EmployeeController<list> {
     @RequestMapping("/patient")
     @ResponseBody
     public List<Patient> selectAllOrder(){
+        System.out.println("selectAllOrder::"+patientService.selectAllOrder());
         return patientService.selectAllOrder();
     }
 
@@ -111,7 +157,7 @@ public class EmployeeController<list> {
      * @param response
      * @throws IOException
      */
-    @RequestMapping("/video")
+   /* @RequestMapping("/video")
     public void getVideoPath(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         String videoPath=null;
@@ -156,5 +202,5 @@ public class EmployeeController<list> {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 }

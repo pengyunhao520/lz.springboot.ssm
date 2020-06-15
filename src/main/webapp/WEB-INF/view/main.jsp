@@ -23,84 +23,86 @@
         font-weight: bold;
     }
     #div11{
-        height: 100%;
-        border-left: 40px solid #0f88eb;
-        border-right: 40px solid #0f88eb;
+        border-left: 30px solid #0f88eb;
+        border-right: 30px solid #0f88eb;
+        height: 115%;
+        width: 130%;
 
     }
     #title{
         position:fixed;
         width:100%;
-        height: 150px;
+        height: 60px;
         background-color: #0f88eb;
         text-align:center;
-        font-size:100px;
+        font-size:50px;
         color: white;
         bottom: 0px;
+        left: 0px;
         align-self: center;
         font-family: "仿宋";
     }
-    #title_img{
-        position:relative ;
-        bottom: -10%;
-
+    title_img{
+        margin-bottom: 5px;
     }
     #keshi{
         background-color: #0f88eb;
-        height: 150px;
-        font-size: 100px;
+        height: 60px;
+        width: 100%;
+        font-size: 30px;
         text-align: center;
         font-family: "楷体";
-    }
 
+    }
     #keshifont{
-        position:relative ;
-        bottom: -10%;
+        margin: 0 auto;
+        text-align: center;
+        /*margin: 0 auto;*/
+    
     }
     #keshi > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
         border: 0;
     }
     #keshi > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
-        height: 140px;
-        font-size: 100px;
+        height: 50px;
+        font-size: 30px;
         text-align: center;
         font-family: "楷体";
         margin: 0 auto;
-        background-color: #0f88eb;
+        /*background-color: #0f88eb;*/
+        width: 100%;
+        border: 10px;
+    }
+    #keshi > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
         width: 1920px;
-        border: 5px solid #0f88eb;
+        text-align: center;
+        background: #0f88eb;
+        margin: 0 auto;
+    }
+    #keshi > div > div > div.layui-table-header{
+        border: 0;
+    }
+    .layui-table-header{
+        border: 0;
     }
     #line2{
         background-color: #0f88eb;
         width: 20px;
         margin-top: -5px;
-        height: 800px;
+        height: 100%;
         margin-left: 50%;
-    }
-    #lineleft{
-        background-color: #0f88eb;
-        width: 20px;
-        margin-top: -705px;
-        height: 900px;
-    }
-    #lineright{
-        background-color: #00FF00;
-        width: 20px;
-        margin-top: -205px;
-        height: 800px;
-        margin-right: 0;
     }
 
     .doctorDiv{
         /*position:relative;*/
         width: 49%;
         height: auto;
-        margin-top: -480px;
+        margin-top: -400px;
     }
 
     #doctorTableDiv{
         margin: 0 auto;
-        margin-top: -100px;
+        margin-top: -140px;
         width: 400px;
     }
 
@@ -108,21 +110,21 @@
         border: 0;
         margin: 0 auto;
         height: 350px;
-        width: auto;
+        width: 200px;
         margin-top: 20px;
-        margin-left: 3px;
+        margin-left: 250px;
     }
     .personDiv{
         position:relative;
         width: 49%;
         height: auto;
         margin-top: -600px;
-        margin-left: auto;
+        margin-left: 560px;
     }
 
     #jiuzhenhuanzhe{
         margin-left: 130px;
-        width: 600px;
+        width: 520px;
         height: 156px;
         border: 2px solid #0f88eb;
     }
@@ -131,15 +133,15 @@
         text-align: center;
         background-color: #0f88eb;
         color: white;
-        width: 170px;
+        width: 150px;
         font-family: "楷体";
-        font-size: 68.5px;
+        font-size: 60px;
     }
 
     #dengdaijiuzhen{
         margin-left: 130px;
         margin-top: 30px;
-        width: 600px;
+        width: 520px;
         height: 156px;
         border: 2px solid #0f88eb;
     }
@@ -150,7 +152,7 @@
         background-color: #0f88eb;
         color: white;
         width: 170px;
-        font-size: 68.5px;
+        font-size: 60px;
     }
     #personTableDiv{
         border: 0;
@@ -161,7 +163,7 @@
 
     }
     #personTableDiv2{
-        font-size: 100px;
+        font-size: 40px;
         margin: 0 auto;
         align-content: center;
         width: 250px;
@@ -204,17 +206,23 @@
         font-size: large;
     }
 
-    #img{
-        width: 400px;
-        height: 300px;
-        margin:0 auto;
-        margin-left: 30px;
+    #keshi > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
+        margin-left: 200px;
+            border: 0px;
+    }
+    #keshi > div > div > div.layui-table-body.layui-table-main{
+        text-align: center;
     }
     .imageTableDiv > div:nth-child(2){
         margin: 0 auto;
-        width: 300px;
+        width: 235px;
+        border:0;
     }
 
+    #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
+        width: 230px;
+        border: 0;
+    }
 
 
    /* #personTableDiv > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1){
@@ -225,7 +233,7 @@
         width: 98.5px;
     }*/
     #personTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
-        font-size: 60px;
+        font-size: 40px;
         color: #0f88eb;
         text-align: center;
     }
@@ -233,7 +241,7 @@
         height: 100px;
     }
     #personTableDiv2 > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div{
-        font-size: 60px;
+        font-size: 40px;
         color: #0f88eb;
         text-align: center;
     }
@@ -291,10 +299,34 @@
     #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td > div > div > img{
         border-color: #0f88eb;
     }
+
+    #personTableDiv2 > div > div > div.layui-table-header{
+        border: 0;
+    }
+    #personTableDiv > div > div > div.layui-table-header{
+       border: 0;
+    }
+    #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-header{
+      border: 0;
+    }
+    #imageTable{
+      border: 0;
+    }
+    #keshi > div > div > div.layui-table-body.layui-table-main > div{
+        border: 0;
+    }
+    #keshi > div{
+        border: 0;
+    }
+
+    #div11 > div.doctorDiv > div.imageTableDiv > div > div > div.layui-table-body.layui-table-main > table > tbody > tr > td{
+        border: 0;
+    }
     html,body{
-        height: 100%;
+        height: 104.5%;
         width: 100%;
     }
+
 </style>
 
 
@@ -307,8 +339,8 @@
 <%--            <span id="keshifont">科室</span>--%>
         </div>
         <hr id="line2" class="line1"/>
-<%--        <hr id="lineleft" class="line1"/>--%>
-<%--        <hr id="lineright" class="line1"/>--%>
+        <%--<hr id="lineleft" class="line1"/>--%>
+        <%--<hr id="lineright" class="line1"/>--%>
         <%--当前就诊和等会患者--%>
         <div class="personDiv">
             <div id="jiuzhenhuanzhe">
@@ -368,7 +400,7 @@
 
         <div class="layui-col-md9" id="title">
             <div id="title_img">
-                <img src="static/images/logo.jpg" width="100"  >
+                <img src="static/images/logo.jpg" width="60"  >
                 石首市中医医院
             </div>
         </div>
