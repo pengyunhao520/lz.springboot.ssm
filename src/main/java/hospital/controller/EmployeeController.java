@@ -110,10 +110,6 @@ public class EmployeeController<list> {
                     //判断当前星期和diaScheduling中的星期是否相等
                     if (week.weekDay(weekday).equals(diaScheduling.getWeekTime())){
                         //判断客户端ip和数据库ip，RoomCode和DiaRoom是否相等
-                        System.out.println(diaRoom.getIpAddess());
-                        System.out.println(ipAddr);
-                        System.out.println(diaRoom.getRoomCode());
-                        System.out.println(diaScheduling.getDiaRoom());
                         if (diaRoom.getIpAddess().equals(ipAddr) && diaRoom.getRoomCode().equals(diaScheduling.getDiaRoom())){
                             //将当前星期和数据库星期相等的添加到list中
                             diaScheduling.setDoctorImg(testImage.blobToBase64(diaScheduling.getDoctorImage()));
