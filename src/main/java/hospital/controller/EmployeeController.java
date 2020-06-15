@@ -95,7 +95,6 @@ public class EmployeeController<list> {
         String ipAddr = getIpAddr(request);
         System.out.println("ipAddr"+ipAddr);
         DiaRoom diaRoom = diaRoomService.getDiaRoom(ipAddr);
-        System.out.println(diaRoom);
 
         //查询所有医生
         List<Employee> emp = employeeService.getAll();
