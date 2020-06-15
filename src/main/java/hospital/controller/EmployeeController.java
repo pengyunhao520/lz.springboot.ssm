@@ -93,7 +93,6 @@ public class EmployeeController<list> {
         TestImage testImage = new TestImage();
         //创建获取ip对象
         String ipAddr = getIpAddr(request);
-        System.out.println("ipAddr"+ipAddr);
         DiaRoom diaRoom = diaRoomService.getDiaRoom(ipAddr);
 
         //查询所有医生
