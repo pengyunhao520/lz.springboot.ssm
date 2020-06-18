@@ -27,14 +27,17 @@ $(function () {
                          console.debug(action)
                          return "<img src='"+base64+action.doctorImage+"'>";
                      }},*/
-                {field:'specialty',title: '所在科室',width: 'full-200',align:'center'},
+                {field:'specialty',width: 'full-200',align:'center'},
 
                 /* {field:'doctorImage',title: '头像',align:'center',template: function (action) {
                      return "<img src='"data:image/png;base64,""+action+"'>";
                      }},*/
 
             ]]
-
+            // 数据渲染完的回调
+            ,done: function (res, curr, count) {
+                $(".layui-table-cell").css("border", "0");
+            }
 
 
         });
@@ -68,7 +71,7 @@ $(function () {
                         return "<img src='"+base64+action.doctorImage+"'>";
                     }},*/
                 {field:'name',title: '医生姓名', width: 'full-200',align:'center'},
-                {field:'doctorCode',title: '工号',width: 'full-200',align:'center'},
+                {field:'jobName',title: '职称',width: 'full-200',align:'center'},
 
                /* {field:'doctorImage',title: '头像',align:'center',template: function (action) {
                     return "<img src='"data:image/png;base64,""+action+"'>";
@@ -91,7 +94,6 @@ $(function () {
         var table = layui.table;
         table.render({
             elem: '#imageTable'
-            //,height:'100px'
             ,url:'/hospital/doctorAll'
             ,backgroundColor:'lightblue'
             ,parseData:function (res) {
@@ -104,11 +106,18 @@ $(function () {
             }
 
             ,cols: [[
-                {field:'doctorImg',templet: function (action) {
-                        var base64="data:image/jpg;base64,";
-                        return "<div><img width='80px' src='"+base64+action.doctorImg+"'></div>";
+                {field:'doctorImage',align:'center',templet: function (action) {
+                      /*  var base64="data:image/jpg;base64,";
+                        return "<div><img width='80px' src='"+base64+action.doctorImg+"'></div>";*/
+                        // return "<div><img src='"+action.doctorImg+"' width='80px'></div>";
+                        // return "<div><img src='"+action.doctorImage+"' style='width: 150px;'></div>";
+                        return "<div><img src='"+action.doctorImage+"' ></div>";
                     }},
             ]]
+          /*  ,cols: [[
+                {field:'doctorImage',align:'center',templet:
+                "<div ><img style=width: 140px;' src='{{d.doctorImage}}'></div>"},
+            ]]*/
 
 
 
@@ -201,34 +210,22 @@ $(function () {
     });
 })
 
-//显示当前时间
-function getCurDate()
-{
-    var d = new Date();
-    var week;
-    switch (d.getDay()){
-        case 1: week="星期一"; break;
-        case 2: week="星期二"; break;
-        case 3: week="星期三"; break;
-        case 4: week="星期四"; break;
-        case 5: week="星期五"; break;
-        case 6: week="星期六"; break;
-        default: week="星期天";
+function getByClass(parent, cls){
+    if(parent.getElementsByClassName){
+        return parent.getElementsByClassName(cls);
+    }else{
+        var res = [];
+        var reg = new RegExp(' ' + cls + ' ', 'i')
+        var ele = parent.getElementsByTagName('*');
+        for(var i = 0; i < ele.length; i++){
+            if(reg.test(' ' + ele[i].className + ' ')){
+                res.push(ele[i]);
+            }
+        }
+        return res;
     }
-    var years = d.getFullYear();
-    var month = add_zero(d.getMonth()+1);
-    var days = add_zero(d.getDate());
-    var hours = add_zero(d.getHours());
-    var minutes = add_zero(d.getMinutes());
-    var seconds=add_zero(d.getSeconds());
-    var ndate = years+"年"+month+"月"+days+"日 "+hours+":"+minutes+":"+seconds+" "+week;
-    // divT.innerHTML= ndate;
+    var a =document.getElementsByClassName("layui-table-header");
+    with(a.style){
+        border = 0;
+    }
 }
-
-function add_zero(temp)
-{
-    if(temp<10) return "0"+temp;
-    else return temp;
-}
-
-setInterval("getCurDate()",100);

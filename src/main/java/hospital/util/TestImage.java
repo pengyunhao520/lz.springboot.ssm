@@ -21,7 +21,7 @@ public class TestImage {
      * @return
      *       图片二进制流
      * */
-    public String getImageBinary(String fileName) {
+   /* public String getImageBinary(String fileName) {
         File f = new File(fileName);
         BufferedImage bi;
         try {
@@ -37,11 +37,11 @@ public class TestImage {
         return null;
     }
 
-    /**
+    *//**
      * 将二进制转换为图片
      *
      * @param base64String 图片二进制流
-     */
+     *//*
     public File toImage(String base64String) {
         File w2 = new File("F://java//second//2018-12-10-springboot//springboot.ssm//src//main//webapp//static//images//");
         try {
@@ -56,9 +56,9 @@ public class TestImage {
         }
         return w2;
     }
-
+*/
    /* public static void main(String[] args) {
-//        String fileName = "E://images//hospitl.jpg";
+//        String fileName = "E://images//hospital.jpg";
 //        TestImage testImage = new TestImage();
 //        System.out.println(testImage.getImageBinary(fileName));
 //        testImage.toImage(testImage.getImageBinary(fileName));

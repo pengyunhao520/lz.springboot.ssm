@@ -4,6 +4,7 @@ import hospital.dao.mapper.BaseMapper;
 import hospital.domain.Employee;
 import org.apache.ibatis.annotations.Select;
 
+import java.io.Serializable;
 import java.util.List;
 
 public interface IEmployeeMapper extends BaseMapper<Employee> {
@@ -11,4 +12,8 @@ public interface IEmployeeMapper extends BaseMapper<Employee> {
     @Override
     @Select("select * from Employee")
     List<Employee> selectAll();
+
+    @Override
+    @Select("select * from Employee where EmployeeCode=#{EmployeeCode}")
+    Employee selectByPrimaryKey(Serializable id);
 }

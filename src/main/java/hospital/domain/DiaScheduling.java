@@ -39,10 +39,8 @@ public class DiaScheduling {
     @JsonProperty("Guide_Id")
     private String GuideId;
 
-    @JsonProperty("Doctor_Image")
-    private Blob DoctorImage;
 
-    private String doctorImg;
+    private String doctorImage;
 
     private String video;
 
@@ -129,14 +127,6 @@ public class DiaScheduling {
         GuideId = guideId;
     }
 
-    public Blob getDoctorImage() {
-        return DoctorImage;
-    }
-
-    public void setDoctorImage(Blob doctorImage) {
-        DoctorImage = doctorImage;
-    }
-
     public String getName() {
         return name;
     }
@@ -145,12 +135,12 @@ public class DiaScheduling {
         this.name = name;
     }
 
-    public String getDoctorImg() {
-        return doctorImg;
+    public String getdoctorImage() {
+        return doctorImage;
     }
 
-    public void setDoctorImg(String doctorImg) {
-        this.doctorImg = doctorImg;
+    public void setdoctorImage(String doctorImage) {
+        this.doctorImage = doctorImage;
     }
     public String getVideo() {
         return video;
@@ -173,9 +163,9 @@ public class DiaScheduling {
                 ", Specialty='" + Specialty + '\'' +
                 ", Remark='" + Remark + '\'' +
                 ", GuideId='" + GuideId + '\'' +
-                ", DoctorImage='" + DoctorImage + '\'' +
-                ", doctorImg='" + doctorImg + '\'' +
-                ", video='" + doctorImg + '\'' +
+                ", doctorImage='" + doctorImage + '\'' +
+                ", doctorImage='" + doctorImage + '\'' +
+                ", video='" + doctorImage + '\'' +
                 '}';
     }
 }

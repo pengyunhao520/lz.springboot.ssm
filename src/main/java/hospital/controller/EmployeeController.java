@@ -4,10 +4,7 @@ import hospital.domain.DiaRoom;
 import hospital.domain.DiaScheduling;
 import hospital.domain.Employee;
 import hospital.domain.Patient;
-import hospital.service.IDiaRoomService;
-import hospital.service.IDiaSchedulingService;
-import hospital.service.IEmployeeService;
-import hospital.service.IPatientService;
+import hospital.service.*;
 import hospital.util.TestImage;
 import hospital.util.Week;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +36,8 @@ public class EmployeeController<list> {
     private IPatientService patientService;
     @Autowired
     private IDiaRoomService diaRoomService;
-
+    @Autowired
+    private IJonTableService jonTableService;
 
     /**
      * 获取客户端ip
@@ -86,33 +84,35 @@ public class EmployeeController<list> {
         //创建获取ip对象
         String ipAddr = getIpAddr(request);
         DiaRoom diaRoom = diaRoomService.getDiaRoom(ipAddr);
+        System.out.println(diaRoom);
 
         //查询所有医生
         List<Employee> emp = employeeService.getAll();
         //查询所有医生排班
         List<DiaScheduling> dia = diaSchedulingService.getAll();
         for (DiaScheduling diaScheduling : dia) {
-            for (Employee employee: emp) {
+            for (Employee employee : emp) {
                 //判断医生编号是否相等
-                if (employee.getEmployeeCode().equals(diaScheduling.getDoctorCode())){
-                    //将医生编号相等的医生姓名添加到diaScheduling
-                    diaScheduling.setName(employee.getEmployeeName());
-                    //判断当前星期和diaScheduling中的星期是否相等
-                    if (week.weekDay(weekday).equals(diaScheduling.getWeekTime())){
-                        //判断客户端ip和数据库ip，RoomCode和DiaRoom是否相等
-                        if (diaRoom.getIpAddess().equals(ipAddr) && diaRoom.getRoomCode().equals(diaScheduling.getDiaRoom())){
-                            //将当前星期和数据库星期相等的添加到list中
-                            diaScheduling.setDoctorImg(testImage.blobToBase64(diaScheduling.getDoctorImage()));
-                            diaScheduling.setSpecialty(diaRoom.getRoomName());
-                            list.add(diaScheduling);
-                            System.out.println("diaRoom:"+diaRoom);
-                        }
-
+                //将医生编号相等的医生姓名添加到diaScheduling
+                if (week.weekDay(weekday).equals(diaScheduling.getWeekTime()) && employee.getEmployeeCode().equals(diaScheduling.getDoctorCode())) {
+                    //判断客户端ip和数据库ip，RoomCode和DiaRoom是否相等
+                    System.out.println(diaRoom.getIpAddess());
+                    System.out.println(ipAddr);
+                    System.out.println(diaRoom.getRoomCode());
+                    System.out.println(diaScheduling.getDiaRoom());
+                    if (diaRoom.getIpAddess().equals(ipAddr) && diaRoom.getRoomCode().equals(diaScheduling.getDiaRoom())) {
+                        //将当前星期和数据库星期相等的添加到list中
+//                        diaScheduling.setDoctorImg(testImage.blobToBase64(diaScheduling.getDoctorImage()));
+                        diaScheduling.setSpecialty(diaRoom.getRoomName());
+                        diaScheduling.setName(employeeService.getOne(diaScheduling.getDoctorCode()).getEmployeeName());
+                        diaScheduling.setJobName(jonTableService.selectByPrimaryKey(diaScheduling.getJobName()).getJobName());
+                        list.add(diaScheduling);
+                        System.out.println("diaRoom:" + diaRoom);
                     }
                 }
             }
         }
-        System.out.println(list);
+        System.out.println("list"+list);
         return list;
     }
 

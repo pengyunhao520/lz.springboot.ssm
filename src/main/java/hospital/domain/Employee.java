@@ -15,13 +15,13 @@ public class Employee {
     @JsonProperty("Specialist_flag")
     private String SpecialistFlag;
 
-    @JsonProperty("HIS_Code")
+    @JsonProperty("Job_Name")
     private String JobName;
 
     private String Specialty;
     private String Remark;
 
-    @JsonProperty("Job_Name")
+    @JsonProperty("HIS_Code")
     private String hisCode;
 
     private String week;
