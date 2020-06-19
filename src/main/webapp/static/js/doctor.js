@@ -111,7 +111,7 @@ $(function () {
                         return "<div><img width='80px' src='"+base64+action.doctorImg+"'></div>";*/
                         // return "<div><img src='"+action.doctorImg+"' width='80px'></div>";
                         // return "<div><img src='"+action.doctorImage+"' style='width: 150px;'></div>";
-                        return "<div><img src='"+action.doctorImage+"' ></div>";
+                        return "<div><img src='"+"/image/"+action.doctorImage+"' ></div>";
                     }},
             ]]
           /*  ,cols: [[

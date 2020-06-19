@@ -95,11 +95,6 @@ public class EmployeeController<list> {
                 //判断医生编号是否相等
                 //将医生编号相等的医生姓名添加到diaScheduling
                 if (week.weekDay(weekday).equals(diaScheduling.getWeekTime()) && employee.getEmployeeCode().equals(diaScheduling.getDoctorCode())) {
-                    //判断客户端ip和数据库ip，RoomCode和DiaRoom是否相等
-                    System.out.println(diaRoom.getIpAddess());
-                    System.out.println(ipAddr);
-                    System.out.println(diaRoom.getRoomCode());
-                    System.out.println(diaScheduling.getDiaRoom());
                     if (diaRoom.getIpAddess().equals(ipAddr) && diaRoom.getRoomCode().equals(diaScheduling.getDiaRoom())) {
                         //将当前星期和数据库星期相等的添加到list中
 //                        diaScheduling.setDoctorImg(testImage.blobToBase64(diaScheduling.getDoctorImage()));
@@ -117,13 +112,26 @@ public class EmployeeController<list> {
     }
 
     /**
-     * 查询当前排队患者
+     * 查询当前就诊患者
      * @return
      */
     @RequestMapping("/patientAll")
     @ResponseBody
-    public List<Patient> getAll(){
-        return patientService.getAll();
+    public List<Patient> getAll(HttpServletRequest request) throws IOException {
+        List patientList=new ArrayList();
+        List<DiaScheduling> dia = allDoctor(request);
+        List<Patient> allPatient = patientService.getAll();
+        for (Patient patient:allPatient) {
+            for (DiaScheduling doctor: dia) {
+                DiaRoom diaRoomByRoomName = diaRoomService.getDiaRoomByRoomName(patient.getDiaRoom());
+                if (diaRoomByRoomName!=null) {
+                    if (doctor.getDiaRoom().equals(diaRoomByRoomName.getRoomCode())) {
+                        patientList.add(patient);
+                    }
+                }
+            }
+        }
+       return patientList;
     }
 
     /**
@@ -132,9 +140,26 @@ public class EmployeeController<list> {
      */
     @RequestMapping("/patient")
     @ResponseBody
-    public List<Patient> selectAllOrder(){
-        System.out.println("selectAllOrder::"+patientService.selectAllOrder());
-        return patientService.selectAllOrder();
+    public List<Patient> selectAllOrder(HttpServletRequest request) throws IOException {
+        List patientList=new ArrayList();
+        List patientList1=new ArrayList();
+        List<DiaScheduling> dia = allDoctor(request);
+        List<Patient> allPatient = patientService.selectAllOrder();
+        System.out.println("::::::::::::::::::::::"+allPatient);
+        System.out.println("dia"+dia);
+        for (Patient patient:allPatient) {
+            for (DiaScheduling doctor: dia) {
+                DiaRoom diaRoomByRoomName = diaRoomService.getDiaRoomByRoomName(patient.getDiaRoom());
+                if (diaRoomByRoomName!=null){
+                    if(doctor.getDiaRoom().equals(diaRoomByRoomName.getRoomCode())){
+                        patientList.add(patient);
+                    }
+                }
+
+            }
+        }
+        patientList1.add(patientList.get(0));
+        return patientList1;
     }
 
     /**

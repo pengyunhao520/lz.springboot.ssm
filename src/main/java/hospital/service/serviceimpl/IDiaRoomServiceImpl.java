@@ -16,4 +16,10 @@ public class IDiaRoomServiceImpl extends BaseServiceImpl<DiaRoom> implements IDi
         DiaRoom diaRoom = diaRoomMapper.getDiaRoom(ipAddress);
         return diaRoom;
     }
+
+    @Override
+    public DiaRoom getDiaRoomByRoomName(String name) {
+        DiaRoom diaRoom = diaRoomMapper.getDiaRoomByRoomName(name);
+        return diaRoom;
+    }
 }

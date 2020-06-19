@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Select;
 public interface IDiaRoomMapper extends BaseMapper<DiaRoom> {
     @Select("select * from Dia_Room where ip_addess=#{ipAddess}")
     DiaRoom getDiaRoom(String ipAddess);
+    @Select("select * from Dia_Room where room_name=#{roomName}")
+    DiaRoom getDiaRoomByRoomName(String name);
 }

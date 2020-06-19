@@ -18,4 +18,9 @@ public class PatientServiceImpl extends BaseServiceImpl<Patient> implements IPat
     public List<Patient> selectAllOrder() {
         return patientMapper.selectAllOrder();
     }
+
+    @Override
+    public Patient getDiaRoomByRoomName(String name) {
+        return patientMapper.getDiaRoomByRoomName(name);
+    }
 }
